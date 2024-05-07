@@ -13,10 +13,12 @@ REDIS_DATA_URL = os.getenv("REDIS_DATA_URL", "http://data:8002")
 DEFAULT_USER_ID = "default_user"
 
 origins = [
+    "http://localhost:8003",
     "http://localhost:8002",
     "http://localhost:8001",
     "http://localhost:8000",
     "http://localhost:3000",
+    "http://0.0.0.0:8003",
     "http://0.0.0.0:8002",
     "http://0.0.0.0:8001",
     "http://0.0.0.0:8000",
@@ -67,7 +69,6 @@ async def translate(translation_request: TranslationRequest) -> Translation:
         "target_lang": translation_request.target_lang,
         "translated": translation.translated
     }
-
     try:
         response = requests.post(f'{REDIS_DATA_URL}/save/{DEFAULT_USER_ID}/translations', json=payload)
         response.raise_for_status()

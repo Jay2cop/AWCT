@@ -13,9 +13,13 @@ REDIS_DATA_URL = "http://data:8002"
 DEFAULT_USER_ID = "default_user"
 
 origins = [
+    "http://localhost:8003",
+    "http://localhost:8002",
     "http://localhost:8001",
     "http://localhost:8000",
     "http://localhost:3000",
+    "http://0.0.0.0:8003",
+    "http://0.0.0.0:8002",
     "http://0.0.0.0:8001",
     "http://0.0.0.0:8000",
     "http://0.0.0.0:3000",
